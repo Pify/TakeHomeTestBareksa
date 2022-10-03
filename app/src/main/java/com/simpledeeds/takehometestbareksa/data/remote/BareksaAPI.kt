@@ -2,9 +2,9 @@ package com.simpledeeds.takehometestbareksa.data.remote
 
 import com.simpledeeds.takehometestbareksa.data.remote.responses.Chart
 import com.simpledeeds.takehometestbareksa.data.remote.responses.DetailProduct
+import com.simpledeeds.takehometestbareksa.data.remote.responses.LoginStatus
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface BareksaAPI {
 
@@ -19,4 +19,13 @@ interface BareksaAPI {
         @Query("productCodes[]")
         productCodes: List<String>
     ): Response<Chart>
+
+    @FormUrlEncoded
+    @POST("/login")
+    suspend fun loginUser(
+        @Field("username")
+        username: String,
+        @Field("password")
+        password: String
+    ) : Response<LoginStatus>
 }
