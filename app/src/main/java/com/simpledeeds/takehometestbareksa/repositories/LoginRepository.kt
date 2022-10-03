@@ -6,7 +6,6 @@ import javax.inject.Inject
 class LoginRepository @Inject constructor(
     private val retrofitInstance: BareksaAPI
 ) {
-    suspend fun loginUser() {
-
-    }
+    suspend fun loginUser(username: String, password: String) =
+        retrofitInstance.loginUser(username, password)
 }
