@@ -8,4 +8,7 @@ class LoginRepository @Inject constructor(
 ) {
     suspend fun loginUser(username: String, password: String) =
         retrofitInstance.loginUser(username, password)
+
+    suspend fun signOut(token: String) =
+        retrofitInstance.signOut(token)
 }
