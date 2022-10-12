@@ -28,4 +28,11 @@ interface BareksaAPI {
         @Field("password")
         password: String
     ) : Response<LoginStatus>
+
+    @FormUrlEncoded
+    @POST("/signout")
+    suspend fun signOut(
+        @Field("token")
+        token: String,
+    ) : Response<LoginStatus>
 }
